@@ -16,7 +16,7 @@ def student_averages(dict_students):
     avg_students = {}
     for clave in dict_students:
         avg_students[clave] = calc_average(dict_students.get(clave))
-    print(avg_students)
+    return avg_students
 
 def assignment_averages(dict_students):
     avg_assignments = {}
@@ -29,7 +29,7 @@ def assignment_averages(dict_students):
     for key in avg_assignments:
         avg_assignments[key] /= len(dict_students)
         avg_assignments[key] = round(avg_assignments[key])
-    print(avg_assignments)
+    return avg_assignments
 
 student_averages(dict_students)
 assignment_averages(dict_students)
