@@ -8,11 +8,12 @@ def add_student(student_grades = None):
     while True:
         entry = input("Enter subject and grade (or 'exit' to finish): ").strip()
         if entry.lower() == 'exit':
-            break
-        subject, grade = entry.split(',')
-        subjects[subject.strip().title()] = float(grade.strip())
+                break
+        if ',' in entry:
+            subject, grade = entry.split(',')
+            subjects[subject.strip().title()] = float(grade.strip())
     student_grades[name] = subjects
-    print(f"Student {name} succesfully added to the grades management system. \n")
+    print(f"Student {name} successfully added to the grades management system.")
     return student_grades
 def get_students(student_grades, keys):
     result = {}
@@ -23,7 +24,7 @@ def get_students(student_grades, keys):
             original_name = search[clean_key]
             result[original_name] = student_grades[original_name]
         else:
-            print(f"{key.strip().title()} not found")
+            print(f"{key.strip().title()} not found!")
     return result
 def avg_by_student(student_grades, keys = None):
     if keys is not None:
