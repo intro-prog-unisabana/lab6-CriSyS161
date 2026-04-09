@@ -1,17 +1,17 @@
-scores = []
+scores = {}
 
 while True:
-    user_input = input("Enter player and score as 'name score' (or type 'stop' to finish):\n")
+    user_input = input("Enter player and score as 'name score' (or type 'stop' to finish):")
     if user_input.lower() == "stop":
         break
 
-    name, score = user_input.split()
-    score = int(score)
-    if name in scores:
-        scores[name] += score
-    else:
-        scores[name] = score
-
+    parts = user_input.split()
+    if len(parts) == 2:
+        name, score = parts[0], int(parts[1])
+        if name in scores:
+            scores[name] += score
+        else:
+            scores[name] = score
 if len(scores) == 0:
     print("No scores recorded.")
 else:
